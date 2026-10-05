@@ -37,7 +37,7 @@ int main() {
         else {
             std::cout << "Erreur avec l'operateur " << std::endl;
         }
-        std::cout << "Tu veux continuer ?" << std::endl;
+        std::cout << "Tu veux continuer ? oui/non" << std::endl;
         std::cin >> replay;
 
 
