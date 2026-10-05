@@ -19,17 +19,19 @@ int main() {
         std::cout << "Tu peux enlever 1-3 batons" << std::endl;
         std::cin >> removesticks;
         if (removesticks > 3 || removesticks <= 0) {
-            std::cout << "Tu peux pas mettre un superieur a 3 " << std::endl;
+            std::cout << "Erreur syntaxte " << std::endl;
             return 0;
-        }
-        else {
+        } else {
             total = nsticks - removesticks;
             nsticks = total;
             std::cout << "Actuellement il y a " << total << " batons" << std::endl;
         }
+        if (total == 1) {
+            std::cout << "Tu as perdu :( " << std::endl;
+            break;
+        }
 
         //IA
-        std::cout << "L'IA enleve x batons" << std::endl;
         if (nsticks % 4 == 1) {
             total = nsticks - 1;
             nsticks = total;
@@ -46,7 +48,7 @@ int main() {
             nsticks = total;
             std::cout << "L'IA a enleve " << 3 << " batons" << std::endl;
             std::cout << "Actuellement il y a " << total << " batons" << std::endl;
-        
+
         }else {
             int r = rand() % 3 + 1;
             total = nsticks - r;
@@ -54,9 +56,13 @@ int main() {
             std::cout << "L'IA a enleve " << r << " batons" << std::endl;
             std::cout << "Actuellement il y a " << total << " batons" << std::endl;
         }
+        if (total == 1) {
+            std::cout << "Tu as gagnes ! " << std::endl;
+            break;
+        }
 
     } while (total != 1);
-    
+
     return 0;
 
 }
