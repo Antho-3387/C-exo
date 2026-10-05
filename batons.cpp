@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
+
 
 int main() {
     int nsticks = 21;
@@ -8,11 +11,15 @@ int main() {
 
     std::cout << "Actuellement il y a " << nsticks << " batons " << std::endl;
 
+    srand(time(NULL));
+
+
     do {
+
         std::cout << "Tu peux enlever 1-3 batons" << std::endl;
         std::cin >> removesticks;
-        if (removesticks > 3) {
-            std::cout << "Tu peux pas mettre un chiffre < 3 " << std::endl;
+        if (removesticks > 3 || removesticks <= 0) {
+            std::cout << "Tu peux pas mettre un superieur a 3 " << std::endl;
             return 0;
         }
         else {
@@ -21,8 +28,35 @@ int main() {
             std::cout << "Actuellement il y a " << total << " batons" << std::endl;
         }
 
-    } while (total != 1);
+        //IA
+        std::cout << "L'IA enleve x batons" << std::endl;
+        if (nsticks % 4 == 1) {
+            total = nsticks - 1;
+            nsticks = total;
+            std::cout << "L'IA a enleve " << 1 << " batons" << std::endl;
+            std::cout << "Actuellement il y a " << total << " batons" << std::endl;
+        }else if (nsticks % 4 == 2) {
+            total = nsticks - 2;
+            nsticks = total;
+            std::cout << "L'IA a enleve " << 2 << " batons" << std::endl;
+            std::cout << "Actuellement il y a " << total << " batons" << std::endl;
+        }
+        else if (nsticks % 4 == 3) {
+            total = nsticks - 3;
+            nsticks = total;
+            std::cout << "L'IA a enleve " << 3 << " batons" << std::endl;
+            std::cout << "Actuellement il y a " << total << " batons" << std::endl;
+        
+        }else {
+            int r = rand() % 3 + 1;
+            total = nsticks - r;
+            nsticks = total;
+            std::cout << "L'IA a enleve " << r << " batons" << std::endl;
+            std::cout << "Actuellement il y a " << total << " batons" << std::endl;
+        }
 
+    } while (total != 1);
+    
     return 0;
 
 }
