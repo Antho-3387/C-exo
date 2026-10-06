@@ -21,13 +21,14 @@ int main() {
         if (removesticks > 3 || removesticks <= 0) {
             std::cout << "Erreur syntaxte " << std::endl;
             return 0;
-        } else {
+        }
+        else {
             total = nsticks - removesticks;
             nsticks = total;
             std::cout << "Actuellement il y a " << total << " batons" << std::endl;
         }
         if (total == 1) {
-            std::cout << "Tu as perdu :( " << std::endl;
+            std::cout << "Tu as gagne :) " << std::endl;
             break;
         }
 
@@ -37,7 +38,8 @@ int main() {
             nsticks = total;
             std::cout << "L'IA a enleve " << 1 << " batons" << std::endl;
             std::cout << "Actuellement il y a " << total << " batons" << std::endl;
-        }else if (nsticks % 4 == 2) {
+        }
+        else if (nsticks % 4 == 2) {
             total = nsticks - 2;
             nsticks = total;
             std::cout << "L'IA a enleve " << 2 << " batons" << std::endl;
@@ -49,7 +51,8 @@ int main() {
             std::cout << "L'IA a enleve " << 3 << " batons" << std::endl;
             std::cout << "Actuellement il y a " << total << " batons" << std::endl;
 
-        }else {
+        }
+        else {
             int r = rand() % 3 + 1;
             total = nsticks - r;
             nsticks = total;
@@ -57,7 +60,7 @@ int main() {
             std::cout << "Actuellement il y a " << total << " batons" << std::endl;
         }
         if (total == 1) {
-            std::cout << "Tu as gagnes ! " << std::endl;
+            std::cout << "Tu as perdu :( " << std::endl;
             break;
         }
 
